@@ -1,79 +1,73 @@
-
-# WerkStudent_Python
+# PDF Invoice Data Extraction and Analysis
 
 ## Overview
 
-This repository contains the interview task for the WerkStudent position in Python. The goal is to collect data from three sample invoices, create an Excel file with two sheets, and generate a CSV file. Additionally, an executable file should be provided to run the code.
+This project processes invoice data from PDF files to extract relevant information, summarize it, and save the results in easy-to-use formats like Excel and CSV. The primary goal is to automate the tedious process of manual data extraction from invoices for quick analysis and record-keeping.
 
-## Task Details
+## Tasks Performed
 
-1. **Data Extraction**:
-    - Extract specific values from three sample invoices.
-    - For Sample 1, extract the value shown in the provided image.
-    - <img width="289" alt="image" src="https://github.com/user-attachments/assets/0cf000ff-c305-4ffe-beb4-1c02a04d06b6" />
-    - For Samples 2, extract the value shown in the provided image.
-    - <img width="497" alt="image" src="https://github.com/user-attachments/assets/ea6eb368-604d-4dd4-9235-fbc8ec36d275" />
+### 1. Extracting Specific Information from PDFs
+**Purpose**: Identify and extract key details like:
+- Gross Amount (from the first invoice in EUR).
+- Total USD (from the second invoice in USD).
 
-2. **Excel File Creation**:
-    - Create an Excel file with two sheets:
-        - **Sheet 1**: Contains three columns - File Name, Date (scraped from the document), and Value.
-        - **Sheet 2**: Contains a pivot table with the date and value sum, and also by document name.
+**Method**: Using pattern-matching techniques to locate relevant text in PDFs.
 
-3. **CSV File Creation**:
-    - Create a CSV file with all the data, including headers, and use a semicolon (;) as the separator.
+### 2. Data Extraction and Excel File Creation
+**Purpose**: Extract and store important details, such as invoice dates and amounts, into an Excel file for analysis.
 
-4. **Executable File**:
-    - Provide an executable file (.exe) that can run the code if the files are in the same folder.
+**Details**:
+- Data from both invoices is compiled into a single sheet.
+- A pivot table summarizes totals by date for easier comparison.
 
-5. **Fork Creation**:
-    - Create a fork of this repository named `LastName_FirstName_WerkStudent_Python` (e.g., `Shovon_Golam_WerkStudent_Python`).
-    - Upload your code to this branch. No need to submit a pull request; the fork will be checked directly.
+**Output**: The Excel file (`output.xlsx`) includes:
+- **Sheet 1**: Raw extracted data.
+- **Sheet 2**: Summary pivot table.
 
-6. **Documentation**:
-    - Include an explanation in the README file that a non-technical person can understand.
-    - Ensure the code is documented so that a technical person can understand it.
+### 3. Comprehensive Data Extraction for CSV
+**Purpose**: Extract as much detail as possible from invoices, including:
+- Company name and address.
+- Customer name and address.
+- Invoice number, date, and periods.
+- Total and gross amounts.
 
-7. **Problem Reporting**:
-    - If you face any problems or find it impossible to complete a task, document the issue in the README file of your branch. Explain what the problem was and why you were unable to complete it.
+**Method**: Advanced text recognition with defined patterns to locate details.
 
+**Output**: A structured CSV file (`extracted_invoice_data.csv`) containing extracted data for each invoice.
 
 ## How It Works
 
-1. **Data Extraction**:
-    - The script reads the sample invoices and extracts the required values.
-    - The extracted data is stored in variables for further processing.
+### PDF Reading:
+- PDFs are scanned for text using specialized libraries.
+- Only the relevant details are extracted using predefined rules.
 
-2. **Excel File Creation**:
-    - The script creates an Excel file with two sheets.
-    - Sheet 1 contains the file name, extracted data, and value.
-    - Sheet 2 contains a pivot table summarizing the data by date and document name.
+### Data Processing:
+- Text is cleaned and transformed into a structured format.
 
-3. **CSV File Creation**:
-    - The script generates a CSV file with the extracted data, including headers, and uses a semicolon as the separator.
+### Output Generation:
+- Two files are created:
+  - `output.xlsx` for an organized overview.
+  - `extracted_invoice_data.csv` for comprehensive record storage.
 
-4. **Executable File**:
-    - An executable file is provided to run the entire code. Ensure the sample invoices are in the same folder as the executable file.
+## Technical Details
 
-5. **Requirements File**:
-    -A requirements.txt file is included to create the environment needed to run the code
+### Tools Used:
+- **Python Libraries**:
+  - `PyPDF2` and `fitz` (for reading PDFs).
+  - `re` (for text pattern matching).
+  - `pandas` (for Excel creation).
+  - `csv` (for generating CSV files).
 
-## Running the Code
+### Approach:
+- Scan the PDF content page by page.
+- Look for specific patterns like dates, amounts, and names.
+- Save extracted information into clear and structured files.
 
-1. Place the sample invoices in the same folder as the executable file.
-2. Run the executable file to execute the code and generate the Excel and CSV files.
+## Outputs
 
+### Excel File: `output.xlsx`
+- **Sheet 1**: Raw data extracted from invoices.
+- **Sheet 2**: Pivot table summarizing totals by date.
 
-## Documentation
-
-- The README file contains a non-technical explanation of the code.
-- The code is documented with comments to help technical users understand its functionality.
-
-## Problem Reporting
-
-- If you face any problems or find it impossible to complete a task, document the issue in the README file of your branch. Explain what the problem was and why you were unable to complete it.
-
-## Timeline
-
-- The time limit for this task is 9 January 2025. 
-
-
+### CSV File: `extracted_invoice_data.csv`
+- Includes all extracted details, ready for further analysis.
