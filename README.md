@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project processes invoice data from PDF files to extract relevant information, summarize it, and save the results in easy-to-use formats like Excel and CSV. The primary goal is to automate the tedious process of manual data extraction from invoices for quick analysis and record-keeping.
+This project processes invoice data from PDF files to extract relevant information, summarize it, and save the results in easy-to-use formats like Excel and CSV as per the given tasks.
 
 ## Tasks Performed
 
